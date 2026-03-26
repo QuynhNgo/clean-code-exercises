@@ -13,7 +13,7 @@ class Debtor:
     debt: float
 
 
-def payday(debtors: Iterable[Debtor]) -> list:
+def sort_debtor(debtors: Iterable[Debtor]) -> list:
     # First, we sort the debtors according to their debt
     # such that those with the highest debt are printed first
     ordered = reversed(sorted(debtors, key=lambda debtor: debtor.debt))
@@ -29,7 +29,7 @@ def print_debtor(debtors: Iterable[Debtor]) -> None:
 
 
 if __name__ == "__main__":
-    sortDeptors = payday([
+    sortDeptors = sort_debtor([
         Debtor("Person1", 100.0),
         Debtor("Person2", 200.0),
         Debtor("Person3", 10.0),
