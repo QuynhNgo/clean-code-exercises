@@ -13,13 +13,15 @@ class Debtor:
     debt: float
 
 
-def payday(debtors: Iterable[Debtor]) -> None:
+def payday(debtors: Iterable[Debtor]) -> list:
     # First, we sort the debtors according to their debt
     # such that those with the highest debt are printed first
     ordered = reversed(sorted(debtors, key=lambda debtor: debtor.debt))
+    return ordered
 
+def print_debtor(debtors: Iterable[Debtor]) -> None:
     # Then we print the debtors, highlighting debts above 100 by exclamation marks
-    for debtor in ordered:
+    for debtor in debtors:
         if debtor.debt > 100.0:
             print(f"{debtor.name}: !!!{debtor.debt}!!!")
         else:
@@ -27,10 +29,11 @@ def payday(debtors: Iterable[Debtor]) -> None:
 
 
 if __name__ == "__main__":
-    payday([
+    sortDeptors = payday([
         Debtor("Person1", 100.0),
         Debtor("Person2", 200.0),
         Debtor("Person3", 10.0),
         Debtor("Person4", 50.0),
         Debtor("Person5", 1250.0)
     ])
+    print_debtor(sortDeptors)
